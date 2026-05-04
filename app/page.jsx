@@ -128,18 +128,6 @@ export default function Page() {
               <a href="#range" className="button button-secondary">View Seafood Range</a>
             </div>
 
-            <div className="hero-image-card">
-              <Image
-                src="/images/tuna-body.jpeg"
-                alt="Fresh seafood supplied by The Fish Hub"
-                width={720}
-                height={420}
-                className="hero-image"
-                priority
-              />
-              <div className="hero-image-caption">Fresh daily catch • Bulk supply ready</div>
-            </div>
-
             <div className="hero-badges">
               <span>Daily Price on Request</span>
               <span>Bulk Orders Accepted</span>
