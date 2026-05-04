@@ -9,7 +9,7 @@ const seafoodItems = [
   { english: "Parawa", sinhala: "පරව්වා" },
   { english: "Jumbo Prawns", sinhala: "ජම්බෝ ඉස්සෝ" },
   { english: "Peeli Dalla", sinhala: "පීලි දැල්ලෝ" },
-  { english: "Gemba Dalla", sinhala: "ගැම්බා දැල්ලෝ" },
+  { english: "Gemba Dalla", sinhala: "ගෙම්බා දැල්ලෝ" },
   { english: "Garuba (Kossa)", sinhala: "ගරුබා (කොස්සා)" },
   { english: "Rice Prawns", sinhala: "රයිස් ඉස්සෝ" },
   { english: "Small Prawns", sinhala: "කුඩා ඉස්සෝ" },
