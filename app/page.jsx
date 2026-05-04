@@ -1,24 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 
 const seafoodItems = [
-  "Thora",
-  "Savara",
-  "Thalapath",
-  "Jumbo Prawns",
-  "Peeri Dalla",
-  "Gamba Dalla",
-  "Garuba",
-  "Rice Prawns",
-  "Small Prawns",
-  "Medium Prawns",
-  "Mullet",
-  "Koppara",
-  "Lagoon Crabs",
-  "Sea Crab",
-  "Handello",
+  { english: "Thora", sinhala: "තෝරා" },
+  { english: "Savara", sinhala: "සවරා" },
+  { english: "Parawa", sinhala: "පරව්වා" },
+  { english: "Jumbo Prawns", sinhala: "ජම්බෝ ඉස්සෝ" },
+  { english: "Peeli Dalla", sinhala: "පීලි දැල්ලෝ" },
+  { english: "Gemba Dalla", sinhala: "ගැම්බා දැල්ලෝ" },
+  { english: "Garuba (Kossa)", sinhala: "ගරුබා (කොස්සා)" },
+  { english: "Rice Prawns", sinhala: "රයිස් ඉස්සෝ" },
+  { english: "Small Prawns", sinhala: "කුඩා ඉස්සෝ" },
+  { english: "Medium Prawns", sinhala: "මධ්‍යම ඉස්සෝ" },
+  { english: "Mullet", sinhala: "මලට්" },
+  { english: "Lagoon Crabs", sinhala: "කලපු කකුළුවෝ" },
+  { english: "Sea Crab", sinhala: "මුහුදු කකුළුවෝ" },
+  { english: "Dalla", sinhala: "දැල්ලෝ" },
+  { english: "Handello", sinhala: "හැන්දැල්ලෝ" },
+  { english: "Tuna", sinhala: "ටූනා" },
+  { english: "Linna", sinhala: "ලින්නා" },
+  { english: "Balaya", sinhala: "බලයා" },
+  { english: "Kelawalla", sinhala: "කෙලවල්ලා" },
 ];
 
 const gallery = [
@@ -109,7 +113,11 @@ export default function Page() {
         <div className="container hero-grid">
           <div>
             <div className="pill">Reliable seafood supply across the Western Province</div>
-            <h1>Premium seafood supply for restaurants, hotels, supermarkets and bulk buyers.</h1>
+
+            <h1 className="hero-title-small">
+              Premium seafood supply for restaurants, hotels, supermarkets and bulk buyers.
+            </h1>
+
             <p className="hero-copy">
               The Fish Hub delivers dependable sourcing, strong daily pricing and quality seafood backed by a reliable
               supplier with more than 70 years of market experience.
@@ -118,6 +126,18 @@ export default function Page() {
             <div className="hero-actions">
               <a href="#quote" className="button button-primary">Request a Quote</a>
               <a href="#range" className="button button-secondary">View Seafood Range</a>
+            </div>
+
+            <div className="hero-image-card">
+              <Image
+                src="/images/tuna-body.jpeg"
+                alt="Fresh seafood supplied by The Fish Hub"
+                width={720}
+                height={420}
+                className="hero-image"
+                priority
+              />
+              <div className="hero-image-caption">Fresh daily catch • Bulk supply ready</div>
             </div>
 
             <div className="hero-badges">
@@ -159,13 +179,11 @@ export default function Page() {
             <h2>Fresh seafood supplied with trust, quality and professionalism.</h2>
             <p>
               Based in Mount Road, Moratuwa, The Fish Hub is a growing seafood business built on honest service,
-              strong sourcing and a professional approach to trade supply. We work with a reliable supplier who has
-              been in the seafood market for more than 70 years, helping us secure quality products at the right price.
+              strong sourcing and a professional approach to trade supply.
             </p>
             <p>
               Led by two young, hardworking entrepreneurs, The Fish Hub is focused on giving buyers the best possible
-              balance of freshness, value and reliable service. From daily seafood requirements to bulk trade orders,
-              our goal is to become a trusted supply partner for businesses across the Western Province.
+              balance of freshness, value and reliable service.
             </p>
           </div>
         </div>
@@ -200,8 +218,9 @@ export default function Page() {
 
           <div className="catalog-grid">
             {seafoodItems.map((item) => (
-              <div className="catalog-card" key={item}>
-                <div className="catalog-name">{item}</div>
+              <div className="catalog-card" key={item.english}>
+                <div className="catalog-name">{item.english}</div>
+                <div className="catalog-sinhala">{item.sinhala}</div>
                 <div className="catalog-meta">Daily price on request</div>
               </div>
             ))}
@@ -254,8 +273,8 @@ export default function Page() {
             <p className="eyebrow">Request a Quote</p>
             <h2>Send your seafood inquiry directly from the website.</h2>
             <p>
-              Since seafood prices depend on daily supply and market conditions, the site is set up for quote requests.
-              Submit your order details and we will confirm availability, pricing and delivery.
+              Since seafood prices depend on daily supply and market conditions, submit your order details and we will
+              confirm availability, pricing and delivery.
             </p>
 
             <div className="contact-box">
@@ -291,7 +310,9 @@ export default function Page() {
               <select name="seafoodItem" required defaultValue="">
                 <option value="" disabled>Select a seafood item</option>
                 {seafoodItems.map((item) => (
-                  <option key={item} value={item}>{item}</option>
+                  <option key={item.english} value={`${item.english} - ${item.sinhala}`}>
+                    {item.english} - {item.sinhala}
+                  </option>
                 ))}
               </select>
             </label>
